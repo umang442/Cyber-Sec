@@ -1,0 +1,12 @@
+-Accapt			-If-Modified-Since
+-Accapt-Charset		-If-Unmodified-Since
+-Accapt-Encoding	-If-Match
+-Accapt-Language	-If-None-Match
+-Authorization		-Pragma
+-Cache-Control		-Range
+-Connection		-User-Agent
+-Cookie			-Via
+-Content-Length		-X-Forwarded For
+-Content-Type		
+-Date			
+-Host	

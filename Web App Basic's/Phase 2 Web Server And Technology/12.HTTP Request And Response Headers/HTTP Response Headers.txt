@@ -1,0 +1,14 @@
+-Access-Control-Allow-Origin	-Last-Modified
+-Accapt-Ranges			-Location
+-Age(In Seconds)		-Retry-After
+-Allow				-Server
+-Cache-Control			-Set-Cookie
+-Connection			-Transfer-Encoding
+-Content-Disposition		-Vary
+-Content-Encoding		-Via
+-Content-Language		-WWW-Authenticate
+-Content-Length 		-Strict-Transpot-Security			
+-Content-Type
+-Date
+-Etag
+-Expires	

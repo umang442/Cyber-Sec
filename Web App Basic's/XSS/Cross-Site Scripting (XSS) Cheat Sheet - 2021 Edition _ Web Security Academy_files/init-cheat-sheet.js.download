@@ -1,0 +1,217 @@
+function filter() {
+	var i, hide, eventsDetails, eventFilterValue = document.getElementById('eventFilter').value, tagFilterValue = document.getElementById('tagFilter').value, browserFilterValue = document.getElementById('browserFilter').value, select, event = new Event('change'), 
+	eventsSelection = [...document.getElementById('eventFilter').options].filter((x) => x.selected).map(x=>x.text),
+	tagsSelection = [...document.getElementById('tagFilter').options].filter((x) => x.selected).map(x=>x.text),
+	browsersSelection = [...document.getElementById('browserFilter').options].filter((x) => x.selected).map(x=>'.'+x.text.toLowerCase());
+	eventsDetails = document.querySelectorAll('details');
+	for(i=0;i<eventsDetails.length;i++) {
+		if(eventsDetails[i].id) {
+			hide = false;
+			if(eventFilterValue === 'All events' || eventsDetails[i].id === eventFilterValue || eventsSelection.includes(eventsDetails[i].id)) {
+			} else {
+				hide = true;
+			}
+
+			if(browserFilterValue === 'All browsers' || (browsersSelection.length && eventsDetails[i].querySelector(browsersSelection.join(',')))) {
+			} else {
+				hide = true;
+			}
+			select = eventsDetails[i].querySelector('select');
+			if(tagFilterValue === 'All tags') {
+				select.selectedIndex = 0;
+				select.dispatchEvent(event);
+			} else if(data[eventsDetails[i].id] && data[eventsDetails[i].id].tags.find(x=>x.tag===tagFilterValue||x.tag==='*'||tagsSelection.includes(x.tag))) {
+				select.value = tagFilterValue;
+				select.dispatchEvent(event);
+				if(select.selectedIndex === -1) {
+					hide = true;
+				}
+			} else if(data[eventsDetails[i].id].tags[0] === '*') {
+				select.value = tagFilterValue;
+				select.dispatchEvent(event);
+			} else {
+				hide = true;
+			}
+
+			if(hide) {
+				eventsDetails[i].className = 'hidden';
+			} else {
+				eventsDetails[i].className = '';
+			}
+
+		}
+	}
+}
+function encodeHTML(n) {
+    return n = n + "", n.replace(/[<>'"&]/ig, function(n) {
+        return {
+            "<": "&lt;",
+            ">": "&gt;",
+            "&": "&amp;",
+            '"': "&quot;",
+            "'": "&#39;"
+        } [n]
+    })
+}
+
+function getVectorData(n, t) {
+    for (var r = data[t].tags, i = 0; i < r.length; i++)
+        if (r[i].tag === n || r[i].tag === '*') return r[i];
+    return null
+}
+
+function showVector(n, t) {
+    var r, i = getVectorData(n, t), code = i.code, tags, url = i.url,
+        e, o = "",
+        s = "",
+        h, f, u = ["chrome", "firefox", "edge", "safari"];
+				tags = data[t].tags;
+				if(tags[0].tag === '*') {
+					if(n === 'custom tags') {
+						code = code.replace(/[*]/gi,"xss");
+						if(url) {
+							url = url.replace(/[*]/gi,"xss");
+						}
+					} else {
+						code = code.replace(/[*]/gi,n);
+						if(url) {
+							url = url.replace(/[*]/gi,n);
+						}
+					}
+				}
+    for (s = i.hash ? i.hash : "", h = url ? url : "https://portswigger-labs.net/xss/xss.php?context="+encodeHTML(i.context?i.context:'html')+"&x=" + encodeURIComponent(code) + s + "", f = document.querySelector("details#" + t + " > div > a"), f.href = h, f.innerHTML = encodeHTML(code), e = i.browsers, r = 0; r < u.length; r++) o += '<img class="' + (~e.indexOf(u[r]) ? u[r] : "disabled") + '" src="../images/browser-logos/' + encodeHTML(u[r]) + '.svg">';
+    document.querySelector("details#" + t + " .browsers").innerHTML = o
+}
+function onLinkClick(n) {
+    var element = n.currentTarget,
+        text = element.href+'';
+	  copyToClipboard(text, element);
+    element.classList.add("success");
+    setTimeout(function() {
+        element.classList.remove("success")
+    }, 1000)
+}
+function onCopyClick(n) {
+    var i = n.currentTarget,
+        r = i.parentNode.previousElementSibling.textContent,
+        t;
+	  copyToClipboard(r, i);
+    i.classList.add("success");
+    setTimeout(function() {
+        i.classList.remove("success")
+    }, 1e3)
+}
+function copyToClipboard(text, element) {
+	navigator.clipboard ? navigator.clipboard.writeText(text) : (t = document.createElement("textarea"), t.value = text, element.insertAdjacentElement("afterend", t), t.focus(), t.select(), document.execCommand("copy"), element.parentNode.removeChild(t));
+}
+function buildCodeFromWildcard(code) {
+	var i, j, output = [], tags = new Set();
+	for(i in data) {
+		for(j=0;j<data[i].tags.length;j++) {
+			if(data[i].tags[j].tag === '*') {
+				continue;
+			}
+			tags.add(data[i].tags[j].tag);
+		}
+	}
+	tags = [...tags];
+	for(i=0;i<tags.length;i++) {
+		output.push(code.replace(/[*]/gi, tags[i]));
+	}
+	return output;
+}
+document.getElementById("tagFilter").onchange = filter;
+document.getElementById("eventFilter").onchange = filter;
+document.getElementById("browserFilter").onchange = filter;
+
+document.querySelector('.exportButtons button:first-child').onclick = function(){
+	var tags = new Set(), i, j;
+	for(i in data) {
+		let element = document.getElementById(i);
+		if(element && element.classList.contains("hidden")) {
+			continue;
+		}
+		for(j=0;j<data[i].tags.length;j++) {
+			if(data[i].tags[j].tag === '*') {
+				continue;
+			}
+			tags.add(data[i].tags[j].tag);
+		}
+	}
+	copyToClipboard([...tags].sort().join('\n'), this);
+};
+document.querySelector('.exportButtons button:nth-child(2)').onclick = function(){
+	var events = new Set(), i, j, event;
+	for(event in data) {
+		let element = document.getElementById(event);
+		if(element && element.classList.contains("hidden")) {
+			continue;
+		}
+		events.add(event);
+	}
+	copyToClipboard([...events].sort().join('\n'), this);
+};
+
+document.querySelector('.exportButtons button:nth-child(3)').onclick = function(){
+	var payloads = new Set(), i, j, wildCardPayloadData;
+	for(i in data) {
+		let element = document.getElementById(i);
+		if(element && element.classList.contains("hidden")) {		
+			continue;
+		}
+		console.log("Not Hidden", data[i], data[i].tags);
+		for(j=0;j<data[i].tags.length;j++) {
+			if(data[i].tags[j].tag === '*') {
+				wildCardPayloadData = buildCodeFromWildcard(data[i].tags[j].code);
+				for(k=0;k<wildCardPayloadData.length;k++) {
+					payloads.add(wildCardPayloadData[k]);
+				}
+			} else {
+				payloads.add(data[i].tags[j].code);
+			}
+		}
+	}
+	copyToClipboard([...payloads].sort().join('\n'), this);
+};
+
+Array.from(document.querySelectorAll(".tagSelect")).map(n => {
+    n.addEventListener("change", function() {
+        showVector(this.value, this.dataset.event)
+    })
+});
+Array.from(document.querySelectorAll(".xss-cheat-sheet-button--copy")).map(n => {
+    n.addEventListener("click", onCopyClick);
+});
+Array.from(document.querySelectorAll(".xss-cheat-sheet-button--link")).map(n => {
+    n.addEventListener("click", onLinkClick);
+});
+if(location.hash && location.hash.slice(1) === 'pdf') {
+	if(document.querySelector('details.xss-cheat-sheet-container-eventhandlers > div > div')) {
+		document.querySelector('details.xss-cheat-sheet-container-eventhandlers > div > div').style.display='none';		
+	}
+	if(document.querySelector('.pdfDownload'))document.querySelector('.pdfDownload').style.display = 'none';
+	if(document.querySelector('.ps-breadcrumbs'))document.querySelector('.ps-breadcrumbs').style.display = 'none';
+	if(document.querySelector('details summary + div > div'))document.querySelector('details summary + div > div').style.display = 'none';
+	Array.from(document.querySelectorAll('.downloadedFrom')).forEach(e => {e.style.display='block';});
+	Array.from(document.querySelectorAll('select')).forEach(e => {e.style.visibility='hidden';e.style.width='10px';});
+	Array.from(document.querySelectorAll('button')).forEach(e => {e.style.visibility='hidden';e.style.width='10px';});
+	Array.from(document.querySelectorAll('.downloadedFrom')).forEach(e => e.style.display='block');
+	Array.from(document.querySelectorAll('p')).filter(el => el.textContent === 'Copy:').forEach(e => {e.style.visibility='hidden';e.style.height='10px';e.style.width='10px';});
+	Array.from(document.querySelectorAll('p')).filter(el => el.textContent === 'Tag:').forEach(e => {e.style.visibility='hidden';e.style.height='10px';e.style.width='10px';});
+	document.styleSheets[0].addRule('summary:after','background: none !important');
+	document.styleSheets[0].addRule('.xss-cheat-sheet-container-eventhandlers > div > details > div > details > div','grid-template-columns: 100px 3fr 10px 6fr 10px;');
+	document.styleSheets[0].addRule('.xss-cheat-sheet-container-eventhandlers > div > details > div > div:first-child ','grid-template-columns: 100px 3fr 10px 6fr 10px;');
+	let div = document.createElement('div');
+	let logo = document.createElement('a');
+	let header = document.createElement('header');
+	header.id = "top";
+	header.className = 'page-header';
+  	div.className = 'container';
+	logo.className = 'logo';
+	logo.href = '/';
+	div.append(logo);
+	header.append(div);
+	document.querySelector('.maincontainer').prepend(header);
+	document.querySelector('cms').remove();
+	document.body.append(header.cloneNode(true));
+}

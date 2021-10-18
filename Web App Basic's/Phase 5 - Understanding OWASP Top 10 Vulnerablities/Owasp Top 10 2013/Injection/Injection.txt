@@ -1,0 +1,16 @@
+-- INJECTION --
+
+What is it?
+
+- When Untrusted Data is taken from user input and applied to some kind of query or interpreter
+   in a way that assumes what the data will look like
+
+- An attacker enters the data that does not fit the expected input but malforms it in some way to 
+   have unintended consequences such as error leakage,damage to data or exposure of data
+
+- An attacker can bypass any kind of client-side controls that might be intended to stop this
+	
+- Usually related to SQL but can also apply to LDAP or operating system calls or anything that builds 
+    a query from user input
+
+
