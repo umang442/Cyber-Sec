@@ -1,0 +1,51 @@
+-- What is A Web Application? 
+  -- A web Application is a piece of software which can be accessed form browser like
+	chrome,firefox,safari etc.
+
+-- What is A web server?
+  -- A web server is a network application running on some machine listening on a port
+
+-- what is a browser?
+  -- A browser is actually a web client or a user agent
+
+-- what is protocol?
+  -- A protocol is used to communicate between web client and web server.
+	> Example:- HTTP,HTTPS,FTP,WebSocket
+
+-- What is Web Resource?
+  -- A web resource is a document like HTML,PDF,JSON,XML or anykind of document which is
+	hosted by web server 
+  -- Cilents can access those document through a web server the resource could be either
+	static or dynamic
+
+-- What is Static and Dynamic?
+  -- A resource that does not change is called a static resource
+  -- A dynamic resource can be generated on the fly when a request for dynamic resouce
+	comes from an web client the webserver builds the resource on the fly
+
+-- What is URL?
+  -- URL (Uniform Resource Locator)
+  -- Each resource in the web in the world is identified by an unique URL which is actually a unique string
+  -- Example :- https://drive.google.com/drive/folders/.. 	
+          > https :- Protocol
+	  > drive.google.com :- Identifies Web server in the World 
+	  > /drive/folders/.. :- Path of the Resource in the webserver	
+
+-- What is HTTP(Hyper-text Transfer Protocol)?
+  -- HTTP is STATELESS Protocol
+  -- HTTP is basically a request response protocol that means when ever a web-client needs to do some operation
+	on a resource like reading,updating...
+     > The web client first establishes a connection with webserver where the file is hosted then the webclient sends
+  	 requests to it
+     > The request contains the details what the web client wants like which operation it wants to do
+     > When a web server receives and request it responds with a response back to the client and the 
+    	 content of the response depends on what was requested for.
+     > Example:- If a client ask to read a resource then server can either put the resource in the response or if the resource 
+	 	    is not available then reponds with the resource is not available.
+     > After the response is given back to the client the connection is closed and the webserver does not remember anything 
+	 about the past connections who the clients were that means another time if client send another request to the server 
+	 web server will treat that request as a new request coming from a new web client because of this nature HTTP protocol 
+	 is also called as STATELESS Protocol
+   -- This one pair of request and response is called an http transaction.
+
+	
