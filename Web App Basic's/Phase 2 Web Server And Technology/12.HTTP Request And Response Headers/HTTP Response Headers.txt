@@ -12,3 +12,9 @@
 -Date
 -Etag
 -Expires	
+
+
+
+
+---- IN DETAIL ------
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
