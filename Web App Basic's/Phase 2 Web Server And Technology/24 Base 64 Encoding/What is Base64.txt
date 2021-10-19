@@ -1,0 +1,4 @@
+--- What Is Base64? ---
+   > Base64 encoding is used to convert binary data into a text-like format that allows it to be transported in environments that can handle only text safely. Use cases      are encoding UID's for use in HTTP URL's, encoding encryption keys and certificates to make them safely portable through e-mail, display them in HTML pages and use      them with copy and paste.
+ 
+     Base64 is sometimes also refered to as PEM, which stands for Privacy-enhanced Electronic Mail. There, Base64 was used to create printable text again after binary e-     mail data that was generated during the e-mail encryption process.

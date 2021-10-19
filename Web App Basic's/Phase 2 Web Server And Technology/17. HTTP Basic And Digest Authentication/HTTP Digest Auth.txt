@@ -1,0 +1,7 @@
+---- What is Digest Authentication? ----
+
+  > The main difference is that it doesn't require sending the username and password across the wire in plaintext. It is also      immune to replay-attacks, as it uses a one-time number from the server.
+
+    The server gives the client a one-time use number (a nonce) that it combines with the username, realm, password and the        URI request. The client runs all of those fields through an MD5 hashing method to produce a hash key.
+
+    It sends this hash key to the server along with the username and the realm to attempt to authenticate.

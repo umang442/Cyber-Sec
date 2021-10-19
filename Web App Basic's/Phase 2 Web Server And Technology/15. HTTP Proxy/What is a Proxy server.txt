@@ -1,0 +1,6 @@
+---- What's A Proxy Server? ---
+ > A proxy server is any machine that translates traffic between networks or protocols. It’s an intermediary server separating    end-user clients from the destinations that they browse. Proxy servers provide varying levels of functionality, security,    and privacy depending on your use case, needs, or company policy.
+
+   If you’re using a proxy server, traffic flows through the proxy server on its way to the address you requested. The request    then comes back through that same proxy server (there are exceptions to this rule), and then the proxy server forwards the    data received from the website to you.
+  
+   Modern proxy servers do much more than forward web requests, all in the name of data security and network performance.    Proxy servers act as a firewall and web filter, provide shared network connections, and cache data to speed up common    requests. A good proxy server keeps users and the internal network protected from the bad stuff that lives out in the wild    internet. Lastly, proxy servers can provide a high level of privacy.

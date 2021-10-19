@@ -1,0 +1,2 @@
+---- What is Client Side Scripting ----
+   > Client Side Scritping is scritping that happens in your browser or in client's computer
