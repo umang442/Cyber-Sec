@@ -46,22 +46,22 @@
  	      > Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to                    security concerns regarding in-band configuration of a proxy.
 
 	- 307 :- Temporary Redirect
-	      > The server sends this response to direct the client to get the requested resource at another URI with same method that was used in the prior request. This                 has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used                 in the first request, a POST must be used in the second request.	
+	      > The server sends this response to direct the client to get the requested resource at another URI with same method that was used in the prior request. This                  has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used                 in the first request, a POST must be used in the second request.	
   
   > HTTP Status code 4xx (Client Error)
 	- 400 :- Bad Request
 	      > The server could not understand the request due to invalid syntax.
 	
 	- 401 :- Unauthorized
-	      > Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to                 get the requested response.
+	      > Although the HTTP standard specifies "unauthorized", semantically this response means "unauthenticated". That is, the client must authenticate itself to                    get the requested response.
 	- 403 :- Forbidden
-	      > The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401                 Unauthorized, the client's identity is known to the server.
+	      > The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401                    Unauthorized, the client's identity is known to the server.
 
 	- 404 :- Not Found 
-              > The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is                 valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an                 unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web
+              > The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is                    valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an                      unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web
 
 	- 408 :- Request Timout
-              > This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut                 down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to                 speed up surfing. Also note that some servers merely shut down the connection without sending this message
+              > This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut                   down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to                   speed up surfing. Also note that some servers merely shut down the connection without sending this message
 
    > HTTP Status code 5xx (Server Error)
 	- 500 :- Internal Server Error
@@ -71,7 +71,7 @@
  	      > This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.
 
 	- 503 :- Service Unavailable
- 	      > The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this                 response, a user-friendly page explaining the problem should be sent. This response should be used for temporary conditions and the Retry-After HTTP header                 should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers                     that are sent along with this response, as these temporary condition responses should usually not be cached.
+ 	      > The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this                  response, a user-friendly page explaining the problem should be sent. This response should be used for temporary conditions and the Retry-After HTTP header                 should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers                     that are sent along with this response, as these temporary condition responses should usually not be cached.
 
 	- 504 :- Gateway Timeout
 	      > This error response is given when the server is acting as a gateway and cannot get a response in time
