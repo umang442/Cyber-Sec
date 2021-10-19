@@ -1,0 +1,22 @@
+
+-- What is a Cookie? In Detail ---
+
+  >  Imagine selecting a certain language for a website you'd visit. You'd tell the website: "Hey, I'd like to view your website in, say, English." The website would then       save that information to a little document - a cookie on your computer.
+
+     The next time you'd visit that website, it would be able to read the cookie it saved earlier. That way, the website could 'remember' your language and let you view         the website in English, without you having to select your language again.
+
+     But cookies are not limited to remembering just your language. In fact, a cookie can contain pretty much any kind of information. It can contain the time you visited       a website or it can contain the items you added to your shopping basket. It can even contain all the links you clicked on a certain website, much like leaving a            breadcrumb trail on the internet. A cookie can only contain so much text, but apart from it's size the possibilities are endless. What exactly is saved to a cookie,        is up to the creator of the website you are visiting.
+
+     Now, in contrary to the stuff a cookie can contain, there are limits to who can read your cookies. Imagine you first visit the website we talked about earlier, and         you tell that website that your language is English.
+
+     This is then saved to a cookie on your computer. If you'd visit a different website later, the latter wouldn't be able to read the cookie from the first website. In        other words; only the same website that saves information to a cookie can access it
+
+     Subsequently, developers came up with a clever workaround. What if they would simply store a unique id in a cookie on your computer, and save the rest of the data in      their own system? That way, they could save unlimited amounts of data. The cookie would simply serve as an identifier for your computer, much like a dog tag by which      the website can recognize you and look up your data in it's own system.
+ 
+     This was the first leap towards so called third party cookies. As mentioned, only the same website that saved data to a cookie can access it later. But one website      can actually contain bits of another website. These bits and pieces of other websites, embedded in the website you're visiting, are actually able to access cookies      they saved to your computer earlier.
+
+     Imagine visiting a news website. Apart from news articles, many news websites contain a couple of ads. These ads are in most cases bits of other websites, embedded in      to the news website. Now, the news website you're looking at may not have saved any cookies to your computer and thus know nothing about you. But where do the ads      come from?
+
+     It's not unlikely that the ads on the news website are embedded from the same website as the ads on another website you visited earlier. In fact, you may visit            dozens of websites with ads which are all embedded from the same website.
+
+     So what does this mean? This means that, if the website the ads come from has saved a cookie to your computer earlier, it can identify you - and save information      about you -through other websites. So while you're reading that news website, shopping for new shoes, looking up cures for a headache or reading the latest gossip,      the ads on those websites can identify you, look up your information in their own system and dynamically show ads that you're most likely to be interested in while      simultaneously saving information about what you're doing online.

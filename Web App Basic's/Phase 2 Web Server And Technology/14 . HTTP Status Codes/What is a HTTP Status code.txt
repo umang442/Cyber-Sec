@@ -1,0 +1,2 @@
+---- What is a HTTP Status Code? ---
+  > Status codes let us know whether the request was a success, a failure, or something in-between
