@@ -28,10 +28,15 @@
 -- What is URL?
   -- URL (Uniform Resource Locator)
   -- Each resource in the web in the world is identified by an unique URL which is actually a unique string
-  -- Example :- https://drive.google.com/drive/folders/1aoRMOqhVRjTSSGvDSW_36VRur_Iv5k-P 	
+  -- Example :- https://drive.google.com/drive/folders/1aoRMOqhVRjTSSGvDSW_36VRur_Iv5k-P 
+	     :-	en.wikipedia.org/w/index.php?title=Burrito#Breakfast_burrito	
           > https :- Protocol
-	  > drive.google.com :- Identifies Web server in the World 
+	  > .com  :- Top Level Domain
+	  > drive.google.com  :- Identifies Web server in the World 
 	  > /drive/folders/.. :- Path of the Resource in the webserver	
+	  > ?title=Burrito    :- Parameter String (Provides Server with information to load the correct webpage
+	  > #Breakfat_burrito :- Anchor (Directs your browser to a specific part of a long page)
+
 
 -- What is HTTP(Hyper-text Transfer Protocol)?
   -- HTTP is STATELESS Protocol
