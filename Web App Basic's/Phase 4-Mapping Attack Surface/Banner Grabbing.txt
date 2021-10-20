@@ -1,0 +1,40 @@
+                                                                           --- Banner Grabbing ---
+ > Banner Grabbing is the term used to refer to the technique of grabbing information of a system available on a certain network and all the services running on its open    ports. The Administrator can use this technique totally or take inventory of the system and its services on their available network. Banner hacking is often applicable    for performing white hat hacking endeavors as well as for grey hacking.
+
+   This technique can gain information from banners and configurable text-based welcome screens from network hosts. These banners and network hosts generally contain    information about the system. One of the important points of banner grabbing is that this technique is intended to be used by the administrator only. Few examples of    service ports that are used for the Banner Grabbing technique are HyperText Transfer Protocol (HTTP), File Transfer Protocol (FTP), and Service Mail Transfer Protocol    (SMTP)
+
+
+
+                                                                           ---- Techniques ----
+
+  > There are two types of techniques available to perform Banner Grabbing. This section of the article will cover different techniques used for Banner Grabbing.
+
+                                                                        -- ACTIVE BANNER GRABBING --
+	
+  > This technique is the most popular and the most widely used technique to do Banner Grabbing. In this type of Banner Grabbing, the packets are sent to the remote host       and then they wait for the response to analyze the data. The sender can craft or modify the packets according to them. It involves the opening of a TCP (Transmission       Control Protocol) connection or similar connection between an original host and the remote host. This type of Banner Grabbing is called active because the sender’s         connection is logged into the remote host. Active Banner Grabbing may not prove secure always as while hacking, IDS (Intrusion Detection System) can catch the              exploitation against the target computer or system.
+
+                                                                       -- PASSIVE BANNER GRABBING -- 
+
+  >  This technique, on the other hand, have is less risky than Active Banner Grabbing as in this technique, the high-level exposure to the connection is avoided. As the        directed connection to the host is avoided and other intimidate Software and Systems are used as a gateway to connect. Passive Banner Grabbing can also tally all           the information available on the system and this technique is much less risky than Active Banner Grabbing.
+
+
+                                                                              --- TOOLS ---
+
+  1:- Telnet 
+     --  It is the most popular and best tool for using the technique of banner Grabbing. Telnet web tool is the cross-platform that is available which helps to interact            with remote servers for banner grabbing. Telnet allows querying any service, only by typing telnet IP PORT, where IP represents the IP address of the network and           PORT represents the portal where the remote host is running.
+
+  2:- Wget 
+     -- This tool is popularly used for Active Banner Grabbing, as this tool helps to connect to the remote host or the localhost. The syntax used for Wget is IP address           -q -S, where IP address is the address of the network, -q will help to suppress the output, and -S is used as the parameter that will print the header file sent by         the HTTPS server and FPS server.
+  
+  3:- cURL
+     -- Works exactly the same as Wget. It also connects to the remote host or the localhost but the only difference is in the syntax format. The syntax used for cURL is           curl -s -I IP address | grep -e “Server:”, where -s is responsible for avoiding showing the process of error messages i.e. it mutes the output, -I am the parameter         that is responsible for showing header file all the requested pages. At last, grep is used to get the final output from the server. 
+  
+  4:- Nmap
+     --  It is an amazing tool to perform Banner Grabbing. It helps to get information from the targeted system in a very easy way. The syntax used to make use of Nmap is           nmap –sV –version-intensity 5 site_name -p 80, where -sV allows to lean the software version, and writing –version-intensity 5, the sender can get the maximum              information needed from the targeted system.
+
+  5:- NC(NetCat)
+     -- NetCat or NC is another tool used for fetching information using the banner grabbing technique. It is known to be the oldest and the most popular tool used on UNIX         ad Linux. For using this tool, the syntax is written as nc -V IP POST. This helps in getting the FPS banner and the latest software version.
+
+  6:- ASR
+     -- ASR stands for Attack Surface Reduction and it is one the best tools available to reduce the attack area. ASR tool is considered ideal for IT managers and security         leaders. This web tool will help in discovering unseen areas of your online assets. 
+

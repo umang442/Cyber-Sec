@@ -1,0 +1,20 @@
+                                                            --- Fingerprinting With HTTP Recon ---
+
+  > httprecon is a tool for advanced web server fingerprinting, similar to httprint that we mentioned previously. The httprecon project is doing some research in the field     of web server fingerprinting, also known as http fingerprinting. The goal is the highly accurate identification of given httpd implementations.
+
+
+
+                                                             --- Features Of HTTP Recon --- 
+
+  > These are the main features of the current implementation of httprecon which makes this solution better than other tools of this kind:
+
+    1 -  Many test-cases: There are nine test-cases possible
+    2 - HTTPS/SSL support: Secure web servers can be tested too
+    3 -  Advanced result analysis: Different methods for the analysis of results is provided
+    4 -  Many fingerprint details: The analysis is based on many fingerprint elements
+    5 -  Plaintext Database: The fingerprint data is saved in a file-based plaintext database
+    6 -  Fingerprint Wizard: Fingerprints can be saved and updated within the GUI
+    7 -  IDS evasion mechanism: The configuration settings allow to use IDS evasion mechanisms
+    8 -  Reporting: XML, HTML and TXT reporting is provided for professional testers
+    9 -  Autoupdate: An autoupdate feature informs about new releases
+   10 - Open-source (GPLv3): Everyone can improve the application for themselves

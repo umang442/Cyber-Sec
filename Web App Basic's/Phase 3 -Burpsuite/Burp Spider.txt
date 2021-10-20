@@ -1,0 +1,1 @@
+Burp Spider is a tool for automatically crawling web applications. While it is generally preferable to map applications manually, you can use Burp Spider to partially automate this process for very large applications, or when you are short of time.

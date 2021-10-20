@@ -1,0 +1,15 @@
+--- DIRBUSTER ---
+ > DirBuster is a multi threaded java application designed to brute force directories and files names on web/application servers. Often is the case now of what looks like    a web server in a state of default installation is actually not, and has pages and applications hidden within.
+
+
+
+--- Different Tools Like Dirbuster
+
+ > dirb
+    -- syntax :-  dirb <url_base> <url_base> [<wordlist_file(s)>] [options]
+
+ > gobuster
+    -- syntax :- gobuster dir -u https://xyz.io -w ~/wordlists/shortlist.txt
+
+ > ffuf
+    -- syntax :- ffuf -w /path/to/wordlist -u https://target/FUZZ
